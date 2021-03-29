@@ -1,0 +1,23 @@
+function solve() {
+    let newElement = document.getElementById('newText').value;
+    let list = document.getElementById('items');
+    if (newElement.length === 0) return;
+    let listItem = document.createElement('li');
+    listItem.textContent = newElement;
+    let remove = document.createElement('a');
+    let linkText = document.createTextNode('[Delete]');
+    document.getElementById('newText').value = '';
+    remove.appendChild(linkText);
+    remove.href = "#";
+    remove.addEventListener('click', deleteItem);
+
+    listItem.appendChild(remove);
+    list.appendChild(listItem);
+
+    function deleteItem() {
+        listItem.remove();
+        document.getElementById('newText').value = '';
+
+    }
+
+}
